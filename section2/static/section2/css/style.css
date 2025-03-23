@@ -1,0 +1,146 @@
+section.section2 {
+    height: 80vh;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    background-color: #F0F3FA;
+
+    .main {
+
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+        width: 75vw;
+        height: 75vh;
+
+
+    }
+
+
+    .texte {
+        width: 100%;
+        height: 35vh;
+
+
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+
+        p {
+            text-align: center;
+            font-size: 15px;
+            color: #888888;
+        }
+
+        h3 {
+            text-align: center;
+            font-size: 35px;
+        }
+
+    }
+
+
+
+    .cards {
+
+        display: flex;
+        flex-direction: row;
+        height: 35vh;
+        justify-content: center;
+        width: 90%;
+
+
+        gap: 25px;
+
+    }
+
+    .card {
+        background-color: white;
+        border-radius: 10px;
+        display: flex;
+        gap: 25px;
+
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-inline: 30px;
+        box-shadow: 0px 0px 7px 0px #F0F3FA;
+
+
+        p {
+            text-align: center;
+            font-size: 17px;
+            color: #888888;
+        }
+
+        .img {
+            width: 43px;
+            height: 40px;
+
+            border-radius: 5px;
+            background-color: #5034FC;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                width: 20px;
+                height: 25px;
+                color: white;
+            }
+
+
+        }
+
+        h5 {
+            font-size: 17px;
+            color: #061E5C;
+        }
+    }
+
+    .texte {
+        width: 100%;
+        height: 25vh;
+
+
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+
+        p {
+            text-align: center;
+            font-size: 15px;
+            color: #888888;
+        }
+
+        h3 {
+            text-align: center;
+            font-size: 30px;
+            color: #061E5C;
+        }
+
+
+        button {
+            width: 110px;
+            height: 28px;
+            background-color: #5034FC;
+            border-radius: 25px;
+            font-size: 11px;
+            text-align: center;
+            font-size: 13px;
+            color: white;
+            border: none;
+
+        }
+    }
+
+
+
+
+
+}

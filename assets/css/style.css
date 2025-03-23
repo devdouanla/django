@@ -1,0 +1,23 @@
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+body{
+   border: 3px solid rgb(76, 0, 255);
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+}
+
+
+    
+
