@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Catégories</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0c1b3b; /* bleu nuit */
+            color: #fff;
+        }
+
+        header {
+            background-color: #08152e;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.8em;
+        }
+
+        .container {
+            padding: 30px;
+        }
+
+        .add-btn {
+            background-color: #1d3b73;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-bottom: 25px;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-btn:hover {
+            background-color: #2752a0;
+        }
+
+        .category-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .category-item {
+            background-color: #12254c;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.4);
+            transition: transform 0.2s;
+            font-size: 1.3em;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .category-item:hover {
+            transform: translateY(-5px);
+            background-color: #1b3566;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .action-buttons a {
+            background-color: transparent;
+            color: #fff;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .action-buttons a:hover {
+            color: #ff9900;
+        }
+
+        .action-buttons svg {
+            width: 24px;
+            height: 24px;
+            fill: #fff;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>Catégories</header>
+
+<div class="container">
+    <button class="add-btn" onclick="alert('Formulaire d\'ajout ici')">+ Ajouter une catégorie</button>
+
+    <ul class="category-list">
+        <li class="category-item">
+            <span>Électroménager</span>
+            <div class="action-buttons">
+                <a href="/modifier-categorie/1" title="Modifier cette catégorie">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.72 2.28c-.39-.39-1.02-.39-1.41 0l-11 11c-.26.26-.42.59-.47.94l-1.35 8.13c-.07.43.33.83.77.77l8.13-1.35c.35-.05.68-.21.94-.47l11-11c.39-.39.39-1.02 0-1.41l-2.83-2.83c-.39-.39-1.02-.39-1.41 0l-8.49 8.49c-.22-.2-.47-.37-.73-.52l2.74-2.74-2.42-2.42-4.24 4.24 3.36 3.36-5.02-5.02z"/></svg>
+                </a>
+                <a href="/supprimer-categorie/1" title="Supprimer cette catégorie">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 2v2h4v12h4V4h4V2h-12zm4 4h4v10h-4V6z"/></svg>
+                </a>
+                <a href="/details-categorie/1" title="Voir les détails de cette catégorie">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7v2h6V7h-6zm0 4v2h6v-2h-6zm0 4v2h6v-2h-6z"/></svg>
+                </a>
+            </div>
+        </li>
+
+        <li class="category-item">
+            <span>Mobilier</span>
+            <div class="action-buttons">
+                <a href="/modifier-categorie/2" title="Modifier cette catégorie">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.72 2.28c-.39-.39-1.02-.39-1.41 0l-11 11c-.26.26-.42.59-.47.94l-1.35 8.13c-.07.43.33.83.77.77l8.13-1.35c.35-.05.68-.21.94-.47l11-11c.39-.39.39-1.02 0-1.41l-2.83-2.83c-.39-.39-1.02-.39-1.41 0l-8.49 8.49c-.22-.2-.47-.37-.73-.52l2.74-2.74-2.42-2.42-4.24 4.24 3.36 3.36-5.02-5.02z"/></svg>
+                </a>
+                <a href="/supprimer-categorie/2" title="Supprimer cette catégorie">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 2v2h4v12h4V4h4V2h-12zm4 4h4v10h-4V6z"/></svg>
+                </a>
+                <a href="/details-categorie/2" title="Voir les détails de cette catégorie">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7v2h6V7h-6zm0 4v2h6v-2h-6zm0 4v2h6v-2h-6z"/></svg>
+                </a>
+            </div>
+        </li>
+
+        <li class="category-item">
+            <span>Technologie</span>
+            <div class="action-buttons">
+                <a href="/modifier-categorie/3" title="Modifier cette catégorie">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.72 2.28c-.39-.39-1.02-.39-1.41 0l-11 11c-.26.26-.42.59-.47.94l-1.35 8.13c-.07.43.33.83.77.77l8.13-1.35c.35-.05.68-.21.94-.47l11-11c.39-.39.39-1.02 0-1.41l-2.83-2.83c-.39-.39-1.02-.39-1.41 0l-8.49 8.49c-.22-.2-.47-.37-.73-.52l2.74-2.74-2.42-2.42-4.24 4.24 3.36 3.36-5.02-5.02z"/></svg>
+                </a>
+                <a href="/supprimer-categorie/3" title="Supprimer cette catégorie">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 2v2h4v12h4V4h4V2h-12zm4 4h4v10h-4V6z"/></svg>
+                </a>
+                <a href="/details-categorie/3" title="Voir les détails de cette catégorie">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7v2h6V7h-6zm0 4v2h6v-2h-6zm0 4v2h6v-2h-6z"/></svg>
+                </a>
+            </div>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>

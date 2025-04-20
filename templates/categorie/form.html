@@ -1,0 +1,44 @@
+ {% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title> Catégorie</title>
+     <link rel="stylesheet" href="{% static 'categorie/css/form.css' %}">
+    
+</head>
+<body>
+
+<div class="form-container">
+  {% if add == "ajouter" %}
+  
+   <h2>Ajouter une Catégorie</h2>
+  {% else %}
+  <h2>Modifier une Catégorie</h2>
+{% endif %}
+   
+    <form action="/categorie/{{add}}/{{matricule}}/" method="post">
+     {% csrf_token %}
+        <label for="nom_categorie">Nom de la catégorie :</label>
+         {% if add == "ajouter" %}
+  
+   <input type="text" id="nom_categorie" name="nom_categorie" required>
+  {% else %}
+  <input type="text" id="nom_categorie" name="nom_categorie" value="{{nom}}" required>
+{% endif %}
+        
+
+        <div class="form-buttons">
+            <input type="submit" value="{{action}}">
+            <input type="reset" value="Annuler">
+        </div>
+    </form>
+
+    <div class="retour">
+        <a href="{% url "categorie:home" matricule %}">Retourner</a>
+    </div>
+</div>
+
+</body>
+</html>
+

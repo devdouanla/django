@@ -1,0 +1,43 @@
+ {% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Quartiers</title>
+   
+        <link rel="stylesheet" href="{% static 'maison/css/home.css' %}">
+    
+</head>
+<body>
+<header>Quartiers</header>
+
+<div class="container">
+    <a  style="text-decoration:none; text-align:center;" href="{% url 'quartier:formulaire' matricule     %}" class="add-btn" >+ Ajouter une catégorie</a>
+    <a  style="text-decoration:none; text-align:center;" href="{% url 'gestionnaire:dashboard' matricule     %}" class="add-btn" >Retourner</a>
+
+    <ul class="category-list">
+      {% for categorie in  categories %}
+       <li class="category-item">
+            <span style="color:white;" >{{categorie.nom}}
+
+            </span>
+            <div class="action-buttons">
+                <a href="{% url 'quartier:form' categorie.id  %}" title="Modifier cette catégorie">
+                <img   style="width:20px; height:20px;" src="{% static 'categorie/img/modifier.svg' %}" alt="supprimer">
+                </a>
+                <a href="{% url 'quartier:delete' categorie.id  %}" title="Supprimer cette catégorie">
+                <img   style="width:20px; height:20px;" src="{% static 'categorie/img/supprimer.svg' %}" alt="supprimer">
+                </a>
+                <a href="{% url 'quartier:detail' categorie.id  %}" title="Voir les détails de cette catégorie">
+                <img   style="width:20px; height:20px;" src="{% static 'categorie/img/detail.svg' %}" alt="supprimer">
+                </a>
+            </div>
+        </li>
+        {% endfor %}
+        
+    </ul>
+</div>
+
+</body>
+</html>

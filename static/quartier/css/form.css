@@ -1,0 +1,112 @@
+/* Fond général */
+body {
+    background-color: #0c1b3b; /* Bleu nuit comme fond général */
+    font-family: Arial, sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+/* Conteneur principal du formulaire */
+.form-container {
+    width: 100%;
+    max-width: 400px;
+    background-color: #12254c; /* Bleu légèrement plus clair que le bleu nuit */
+    padding: 30px;
+    margin: 100px auto;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Titre du formulaire */
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: white; /* Texte en blanc pour le titre */
+}
+
+/* Labels des champs */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: white; /* Texte des labels en blanc pour une meilleure visibilité */
+}
+
+/* Champs de texte (input, textarea) */
+input[type="text"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: none;
+    background-color: #08152e; /* Bleu très foncé pour les champs */
+    color: white;
+    box-sizing: border-box;
+}
+
+/* Champs de texte au focus */
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+    border-color: #2e5bbf; /* Bleu clair au focus pour un léger contraste */
+    outline: none;
+}
+
+/* Zone de texte */
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Boutons de soumission et réinitialisation */
+.form-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Boutons : soumettre et réinitialiser */
+input[type="submit"],
+input[type="reset"] {
+    padding: 12px;
+    background-color: #1a3d7c; /* Bleu vif pour les boutons */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+/* Effet de survol des boutons */
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    background-color: #2e5bbf; /* Bleu plus clair au survol */
+}
+
+/* Lien retour */
+.retour {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.retour a {
+    color: #aad4ff; /* Bleu clair pour les liens */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.retour a:hover {
+    color: #ffffff; /* Changer de couleur au survol */
+}
+
+/* Message d'erreur */
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}

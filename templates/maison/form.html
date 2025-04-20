@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Maison</title>
+    <link rel="stylesheet" href="{% static 'maison/css/form.css' %}">
+</head>
+<body>
+
+<div class="form-container">
+    {% if add == "ajouter" %}
+        <h2>Ajouter une maison</h2>
+    {% else %}
+        <h2>Modifier une maison</h2>
+    {% endif %}
+   
+    <form action="/maison/{{ add }}/{{ matricule }}/" method="post">
+        {% csrf_token %}
+
+       
+
+        {% if add == "ajouter" %}
+           <label for="adresse">Adresse :</label>
+           <input type="text" id="adresse" name="adresse" value="{{ adresse }}" required>    
+             {% if  notUnique == True %}
+            <p class="error-message">cet addrese est deja attribue a une masion</p>
+             {% endif %}
+            <label for="quartier">Choisissez un quartier :</label>
+            <select id="quartier" name="quartier" required>
+             {% for quartier in Listequartiers %}
+             <option value="{{quartier.id}}">{{quartier.nom}}</option>
+              
+                {% endfor %}
+            </select>
+               {% if  insuffisance == True %}
+            <p class="error-message">ce quartier est deja pleinr</p>
+               {% endif %}
+            <label for="categorie">Type de maison :</label>
+            <select id="categorie" name="categorie" required>
+             {% for categorie in  Listecategories %}
+                <option value="{{categorie.id}}">{{categorie.nom}}</option>
+             {% endfor %}
+            </select>
+             {% if  not  Listecategories %}
+            <p class="error-message">vous ajouter de masion sans creer les categories </p>
+
+            {% endif %}
+            <label for="superficie">Superficie (en m²) :</label>
+            <input type="number" id="superficie" name="superficie"
+                   {% if add != "Ajouter" %} value="{{ superficie }}"{% endif %}
+                   required step="0.01">
+                <div class="form-buttons">
+                <input type="submit" value="{{ action }}">
+                <input type="reset" value="Annuler">
+            </div>
+        {% else %}
+             <label for="adresse">Adresse :</label>
+             <input type="text" id="adresse" name="adresse" value="{{ maison.adresse }}" required>    
+             <label for="quartier">Choisissez un quartier :</label>
+             <select id="quartier" name="quartier" required>
+                <option value="{{maison.quartier.id}}" selected>{{maison.quartier.nom}}</option>
+              {% for quartier in Listequartiers %}
+              {% if quartier.id != maison.quartier.id %}
+              <option value="{{quartier.id}}">{{quartier.nom}}</option>
+              {% endif %}
+               
+                 {% endfor %}
+             </select>
+            <label for="categorie">Type de maison :</label>
+            <select id="categorie" name="categorie" required>
+                <option value="{{maison.categorie.id}}" selected>{{maison.categorie.nom}}</option>
+             {% for categorie in  Listecategories %}
+             {% if categorie.id != maison.categorie.id %}
+             <option value="{{categorie.id}}">{{categorie.nom}}</option>
+             {% endif %}
+             {% endfor %}
+            </select>
+            <label for="superficie">Superficie (en m²) :</label>
+            <input type="number" id="superficie" name="superficie"
+                   {% if add != "Ajouter" %} value={{maison.surperficie}} {% endif %}
+                   required step="0.01">
+            <div class="form-buttons">
+                <input type="submit" value="{{ action }}">
+                <input type="reset" value="Annuler">
+            </div>
+        {% endif %}
+
+       
+
+      
+    </form>
+    <!-- <option value="{{categorie.id}}">{{categorie.nom}}</option>> <option value="{{maison.quarter.id}}" selected>{{maison.quartier.nom}}</option>-->
+
+    <div class="retour">
+        <a href="{% url "maison:home" matricule %}">Retourner</a>
+    </div>
+</div>
+
+</body>
+</html>

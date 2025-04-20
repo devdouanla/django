@@ -1,0 +1,41 @@
+ {% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+      <link rel="stylesheet" href="{% static 'gestionnaire/css/dashboard.css' %}">
+</head>
+<body>
+
+  
+    <header>
+        <h1>Bienvenue, <span id="gestionnaire-name">{{gestionnaire.nom}}</span> !</h1>
+        <p>Voici votre tableau de bord.</p>
+    </header>
+    
+
+    <div class="dashboard">
+    <a href=" {% url 'quartier:home'   gestionnaire.matricule  %}" class="card">
+   <h2>Gerer quartier</h2>
+            <h4>Nombre de quartiers</h4>
+            <p>{{nb_quartiers}}</p> <!-- Remplacer par le nombre de quartiers -->
+</a>
+ <a href="{% url 'categorie:home'   gestionnaire.matricule  %}" class="card">
+   <h2>Gerer categorie</h2>
+            <h4>Nombre de catégories</h4>
+            <p>{{nb_categories}}</p> <!-- Remplacer par le nombre de catégories -->
+</a>
+<a href=" {% url 'maison:home'   gestionnaire.matricule  %}" class="card">
+  <h2>Gerer maison</h2>
+            <h4>Nombre de maisons</h4>
+            <p>{{nb_maisons}}</p> <!-- Remplacer par le nombre de maisons -->
+    
+</a>
+          
+    </div>
+
+</body>
+</html>

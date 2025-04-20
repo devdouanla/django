@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Détails du Quartier</title>
+    <link rel="stylesheet" href="{% static 'quartier/css/detail.css' %}">
+</head>
+<body>
+    <header>Détails du Quartier</header>
+  
+    <div class="container">
+       
+
+        <div class="detail-item"><strong>Nom :</strong> {{ quartier.nom }}</div>
+        <div class="detail-item"><strong>Description :</strong> {{ quartier.description }}</div>
+        <div class="detail-item"><strong>Superficie :</strong> {{ quartier.surperficie }} km²</div>
+        <div class="detail-item"><strong>Gestionnaire :</strong> {{ quartier.gestionnaire.nom }}</div>
+
+        <h2>Maisons dans ce quartier</h2>
+        <ul class="category-list">
+            {% for maison in listeMaisons %}
+            <li class="category-item">
+                {{ maison.adresse }}
+                <div class="action-buttons">
+                    <a href="{% url 'maison:detail' maison.id %}">Voir</a>
+                </div>
+            </li>
+            {% empty %}
+            <p>Aucune maison enregistrée pour ce quartier.</p>
+            {% endfor %}
+        </ul>
+       
+ <a  style="text-decoration:none; text-align:center;" href="{% url "quartier:home" quartier.gestionnaire.matricule %}" class="add-btn" >Retourner</a>
+    </div>
+</body>
+</html>

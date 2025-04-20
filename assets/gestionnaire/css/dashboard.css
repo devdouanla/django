@@ -1,0 +1,65 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0c1b3b; /* bleu nuit */
+    color: #fff;
+}
+
+/* Header Styles */
+header {
+    background-color: #08152e;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Dashboard Container */
+.dashboard {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 40px;
+    gap: 20px;
+}
+
+/* Card Styles */
+.card {
+    background-color: #12254c;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    width: 250px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.card h2 {
+    font-size: 2em;
+    margin: 0 0 10px;
+}
+
+.card p {
+    font-size: 1.1em;
+    margin: 0;
+    text-decoration: none;
+}
+
+/* Hover Effect for Cards */
+.card:hover {
+    background-color: #1d356f;
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+}
+.card {
+   
+    color: white;
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+}

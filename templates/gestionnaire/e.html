@@ -1,0 +1,111 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h1>Dashboard - Gestion des Quartiers et Maisons</h1>
+
+  <div class="stats">
+    <h2>Statistiques</h2>
+    <ul>
+      <li><strong>Nombre de Quartiers :</strong> {{ nb_quartiers }}</li>
+      <li><strong>Nombre de Catégories :</strong> {{ nb_categories }}</li>  <!--   <a href="{% url 'liste_quartiers' %}" class="back-btn">← Retour</a>    <a href="{% url 'liste_maisons' %}" class="back-btn">← Retour</a>-->
+      <li><strong>Nombre de Maisons :</strong> {{ nb_maisons }}</li>
+    </ul>
+  </div>
+
+  <div class="crud-sections">
+    <!-- Quartiers CRUD -->
+    <div class="crud-section">
+      <h2>Quartiers</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Description</th>
+            <th>Actions</th>
+          </tr>
+        </thead> {% url 'categorie:add'   matricule  %}
+        <tbody>
+          {% for quartier in quartiers %}
+          <tr>
+            <td>{{ quartier.nom }}</td>
+            <td>{{ quartier.description }}</td>
+            <td>
+              <a href="{% url 'edit_quartier' quartier.id %}">Modifier</a>
+              <a href="{% url 'delete_quartier' quartier.id %}">Supprimer</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <a href="{% url 'add_quartier' %}">Ajouter un Quartier</a>
+    </div>
+
+    <!-- Catégories CRUD -->
+    <div class="crud-section">
+      <h2>Catégories</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Description</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for categorie in categories %}
+          <tr>
+            <td>{{ categorie.nom }}</td>
+            <td>{{ categorie.description }}</td>
+            <td>
+              <a href="{% url 'edit_categorie' categorie.id %}">Modifier</a>
+              <a href="{% url 'delete_categorie' categorie.id %}">Supprimer</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <a href="{% url 'add_categorie' %}">Ajouter une Catégorie</a>
+    </div>
+
+    <!-- Maisons CRUD -->
+    <div class="crud-section">
+      <h2>Maisons</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Adresse</th>
+            <th>Quartier</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for maison in maisons %}
+          <tr>
+            <td>{{ maison.nom }}</td>
+            <td>{{ maison.adresse }}</td>
+            <td>{{ maison.quartier.nom }}</td>
+            <td>
+              <a href="{% url 'edit_maison' maison.id %}">Modifier</a>
+              <a href="{% url 'delete_maison' maison.id %}">Supprimer</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <a href="{% url 'add_maison' %}">Ajouter une Maison</a>
+    </div>
+  </div>
+{% endblock %}
+def dashboard(request):
+    nb_quartiers = Quartier.objects.count()
+    nb_categories = Categorie.objects.count()
+    nb_maisons = Maison.objects.count()
+
+    context = {
+        'nb_quartiers': nb_quartiers,
+        'nb_categories': nb_categories,
+        'nb_maisons': nb_maisons,
+    }
+
+    return render(request, 'dashboard.html', context)

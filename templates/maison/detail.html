@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Détails de la Maison</title>
+    <link rel="stylesheet" href="{% static 'maison/css/detail.css' %}">
+</head>
+<body>
+    <header>Détails de la Maison</header>
+
+    <div class="container">
+        <div class="detail-item"><strong>Adresse :</strong> {{ maison.adresse }}</div>
+        <div class="detail-item"><strong>Superficie :</strong> {{ maison.surperficie }} m²</div>
+        <div class="detail-item"><strong>Quartier :</strong> {{ maison.quartier.nom }}</div>
+        <div class="detail-item"><strong>Catégorie :</strong> {{ maison.categorie.nom }}</div>
+        <div class="detail-item"><strong>Gestionnaire :</strong> {{ maison.gestionnaire.nom }}</div>
+
+
+        <a  style="text-decoration:none; text-align:center;" href="{% url "maison:home" maison.gestionnaire.matricule %}" class="add-btn" >Retourner<a/>
+
+    </div>
+
+</body>
+</html>
